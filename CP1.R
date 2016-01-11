@@ -8,7 +8,7 @@ household_power_consumption <- read.csv("~/household_power_consumption.txt", sep
 household_power_consumption$DDate<-
   strptime(paste(household_power_consumption$Date,household_power_consumption$Time),"%d/%m/%Y %H:%M:%S")
 # Make the short dataset (only 2 days)
-HPCCut<-subset(household_power_consumption,DDate>=strptime("10.02.2007","%d.%m.%Y") & DDate<strptime("12.02.2007","%d.%m.%Y"))
+HPCCut<-subset(household_power_consumption,DDate>=strptime("1.02.2007","%d.%m.%Y") & DDate<strptime("3.02.2007","%d.%m.%Y"))
 # Plot 1
 with(HPCCut,{
   png("plot1.png")
@@ -24,7 +24,7 @@ with(HPCCut,{
 #Plot 3
 with(HPCCut,{
   png("plot3.png")
-  plot(x=DDate,y=Sub_metering_2,type="n",ylab = "Energy Sub metering",xlab="")
+  plot(x=DDate,y=Sub_metering_1,type="n",ylab = "Energy Sub metering",xlab="")
   lines(x=DDate,y=Sub_metering_1,col="Black",lty=1)
   lines(x=DDate,y=Sub_metering_2,col="Red",lty=1)
   lines(x=DDate,y=Sub_metering_3,col="Blue",lty=1)
@@ -37,7 +37,7 @@ with(HPCCut,{
   par(mfrow=c(2,2),mar=c(4,4,1,1))
   plot(y=Global_active_power,x=DDate,type = "l",ylab = "Global Active Power",xlab = "")
   plot(y=Voltage,x=DDate,type = "l",ylab = "Voltage",xlab = "datetime")
-  plot(x=DDate,y=Sub_metering_2,type="n",ylab = "Energy Sub metering",xlab="")
+  plot(x=DDate,y=Sub_metering_1,type="n",ylab = "Energy Sub metering",xlab="")
   lines(x=DDate,y=Sub_metering_1,col="Black",lty=1)
   lines(x=DDate,y=Sub_metering_2,col="Red",lty=1)
   lines(x=DDate,y=Sub_metering_3,col="Blue",lty=1)
